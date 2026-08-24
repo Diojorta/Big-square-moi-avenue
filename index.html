@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Big Square Moi Avenue | Nairobi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    background:rgba(0,0,0,.92);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#f5b400;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#f5b400;
+}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:130px 7% 80px;
+    background:
+    linear-gradient(90deg,
+    rgba(0,0,0,.9) 0%,
+    rgba(0,0,0,.65) 50%,
+    rgba(0,0,0,.35) 100%),
+    url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=90");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.badge{
+    display:inline-block;
+    color:#111;
+    background:#f5b400;
+    padding:9px 15px;
+    border-radius:50px;
+    font-weight:bold;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,90px);
+    line-height:.9;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#f5b400;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:19px;
+    line-height:1.7;
+    max-width:600px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    padding:15px 23px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.primary{
+    background:#f5b400;
+    color:#111;
+}
+
+.secondary{
+    border:2px solid white;
+    color:white;
+}
+
+.primary:hover{
+    background:white;
+}
+
+.secondary:hover{
+    background:white;
+    color:#111;
+}
+
+.info-bar{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:#f5b400;
+    color:#111;
+}
+
+.info{
+    padding:25px;
+    text-align:center;
+    border-right:1px solid rgba(0,0,0,.15);
+}
+
+.info strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.info span{
+    font-size:14px;
+}
+
+section{
+    padding:90px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title small{
+    color:#f5b400;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.title h2{
+    font-size:45px;
+    margin-top:10px;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about-img{
+    height:500px;
+    border-radius:22px;
+    background:
+    url("https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1200&q=90")
+    center/cover;
+}
+
+.about-text h2{
+    font-size:44px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#aaa;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.stat{
+    background:#181818;
+    padding:22px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:#f5b400;
+    font-size:28px;
+}
+
+.stat span{
+    color:#aaa;
+    font-size:13px;
+}
+
+.menu-section{
+    background:#111;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.food{
+    background:#1a1a1a;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.food:hover{
+    transform:translateY(-8px);
+}
+
+.food img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-content{
+    padding:22px;
+}
+
+.food-content h3{
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.food-content p{
+    color:#999;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+.price{
+    color:#f5b400;
+    font-weight:bold;
+    font-size:19px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#161616;
+    padding:30px;
+    border-radius:17px;
+    text-align:center;
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#999;
+    line-height:1.6;
+}
+
+.reviews{
+    background:#f5b400;
+    color:#111;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review{
+    background:white;
+    padding:28px;
+    border-radius:17px;
+}
+
+.stars{
+    color:#f5b400;
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.review p{
+    color:#555;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.review strong{
+    font-size:14px;
+}
+
+.location{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:stretch;
+}
+
+.location-box{
+    background:#161616;
+    padding:35px;
+    border-radius:18px;
+}
+
+.location-box h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.location-box p{
+    color:#aaa;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+.map{
+    min-height:400px;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.map iframe{
+    width:100%;
+    height:100%;
+    min-height:400px;
+    border:0;
+}
+
+.cta{
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.cta h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#ddd;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-info h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    color:#aaa;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+.form{
+    background:#161616;
+    padding:30px;
+    border-radius:18px;
+}
+
+.form input,
+.form textarea{
+    width:100%;
+    background:#222;
+    color:white;
+    border:1px solid #333;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+.form textarea{
+    height:130px;
+    resize:none;
+}
+
+.form button{
+    width:100%;
+    border:0;
+    padding:16px;
+    border-radius:8px;
+    background:#f5b400;
+    color:#111;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+footer{
+    background:#050505;
+    text-align:center;
+    padding:30px 7%;
+    color:#777;
+}
+
+footer strong{
+    color:#f5b400;
+}
+
+@media(max-width:850px){
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#080808;
+        flex-direction:column;
+        padding:25px;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .info-bar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about,
+    .location,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .menu-grid,
+    .features,
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .title h2,
+    .about-text h2{
+        font-size:35px;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+}
+
+@media(max-width:500px){
+
+    .info-bar{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        border-right:0;
+        border-bottom:1px solid rgba(0,0,0,.15);
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        BIG<span>SQUARE</span>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ⭐ 4.4 / 5 • 3,646 Reviews
+        </div>
+
+        <h1>
+            BIG FOOD.<br>
+            <span>BIG VIBES.</span>
+        </h1>
+
+        <p>
+            Welcome to Big Square Moi Avenue.
+            Enjoy burgers, crispy fried chicken, ribs,
+            pizza, fries, shakes and more in the heart of Nairobi CBD.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn primary"
+               href="https://www.google.com/maps/search/?api=1&query=Big+Square+Moi+Avenue+Nairobi"
+               target="_blank">
+                📍 Get Directions
+            </a>
+
+            <a class="btn secondary"
+               href="tel:+254707970968">
+                📞 Call Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK INFO -->
+
+<div class="info-bar">
+
+    <div class="info">
+        <strong>⭐ 4.4 Rating</strong>
+        <span>3,646 Google Reviews</span>
+    </div>
+
+    <div class="info">
+        <strong>🍔 KSh 500–3,000</strong>
+        <span>Per Person</span>
+    </div>
+
+    <div class="info">
+        <strong>🕐 Open Daily</strong>
+        <span>Until 10:30 PM</span>
+    </div>
+
+    <div class="info">
+        <strong>📍 Moi Avenue</strong>
+        <span>Nairobi CBD</span>
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <div class="about-img"></div>
+
+        <div class="about-text">
+
+            <small style="color:#f5b400;font-weight:bold;">
+                WELCOME TO BIG SQUARE
+            </small>
+
+            <h2>
+                Made For Food.
+                Made For Moments.
+            </h2>
+
+            <p>
+                Big Square is a Kenyan casual dining brand built around
+                food, family, friends and fun.
+            </p>
+
+            <p>
+                At our Moi Avenue location in Nairobi CBD,
+                you can enjoy a wide selection of burgers,
+                crispy fried chicken, ribs, pizza, fries,
+                shakes and more.
+            </p>
+
+            <p>
+                Whether you're grabbing a quick meal, meeting friends,
+                or enjoying a family outing, Big Square is ready
+                to make your moment a big one.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>4.4★</strong>
+                    <span>Google Rating</span>
+                </div>
+
+                <div class="stat">
+                    <strong>3.6K+</strong>
+                    <span>Reviews</span>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Big Vibes</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="menu-section" id="menu">
+
+    <div class="title">
+
+        <small>WHAT'S COOKING</small>
+
+        <h2>Our Favourites</h2>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>Big Burgers</h3>
+
+                <p>
+                    Juicy burgers packed with delicious
+                    toppings and signature flavours.
+                </p>
+
+                <div class="price">
+                    From KSh 750
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>Crispy Fried Chicken</h3>
+
+                <p>
+                    Golden, crispy chicken made for
+                    serious cravings.
+                </p>
+
+                <div class="price">
+                    From KSh 750
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>BBQ Ribs</h3>
+
+                <p>
+                    Slow-cooked ribs with rich BBQ
+                    flavour and big portions.
+                </p>
+
+                <div class="price">
+                    Available
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>Pizza</h3>
+
+                <p>
+                    Freshly baked pizza with generous
+                    toppings for sharing.
+                </p>
+
+                <div class="price">
+                    From KSh 850
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1630431341973-02e1b662ec35?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>Fries</h3>
+
+                <p>
+                    Golden, crispy and perfect
+                    with your favourite meal.
+                </p>
+
+                <div class="price">
+                    Order Now
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="food">
+
+            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=900&q=90">
+
+            <div class="food-content">
+
+                <h3>Shakes</h3>
+
+                <p>
+                    Creamy, cold and delicious
+                    hand-spun shakes.
+                </p>
+
+                <div class="price">
+                    Order Now
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section>
+
+    <div class="title">
+
+        <small>COME YOUR WAY</small>
+
+        <h2>How We Serve You</h2>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="icon">🍽️</div>
+
+            <h3>Dine-In</h3>
+
+            <p>
+                Sit back, relax and enjoy your meal
+                at Big Square Moi Avenue.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">🥡</div>
+
+            <h3>Takeaway</h3>
+
+            <p>
+                Grab your favourite Big Square meal
+                and enjoy it wherever you go.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">🚗</div>
+
+            <h3>Delivery</h3>
+
+            <p>
+                Order your favourite meals online
+                for convenient delivery.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+
+    <div class="title">
+
+        <small>WHAT PEOPLE SAY</small>
+
+        <h2>Customer Reviews</h2>
+
+    </div>
+
+
+    <div class="review-grid">
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "I love how generous they are with their fries.
+                The burger is good."
+            </p>
+
+            <strong>
+                — Diana Otieno
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Kebrine is the best waitress I have experienced
+                in a long time. Excellent customer service."
+            </p>
+
+            <strong>
+                — Effie Olemo
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Great food, great wine, and excellent service.
+                The fried chicken was delicious."
+            </p>
+
+            <strong>
+                — Cornelius Pharuk
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section id="location">
+
+    <div class="title">
+
+        <small>COME VISIT US</small>
+
+        <h2>Find Big Square Moi Avenue</h2>
+
+    </div>
+
+
+    <div class="location">
+
+        <div class="location-box">
+
+            <h2>Moi Avenue</h2>
+
+            <p>
+                📍 Moi Avenue, Nairobi CBD, Kenya
+            </p>
+
+            <p>
+                🕐 Sunday – Thursday: 6:00 AM – 10:30 PM
+            </p>
+
+            <p>
+                🕐 Friday – Saturday: 6:00 AM – 11:00 PM
+            </p>
+
+            <p>
+                📞 +254 707 970 968
+            </p>
+
+            <br>
+
+            <a class="btn primary"
+               href="https://www.google.com/maps/search/?api=1&query=Big+Square+Moi+Avenue+Nairobi"
+               target="_blank">
+                Open in Google Maps
+            </a>
+
+        </div>
+
+
+        <div class="map">
+
+            <iframe
+                src="https://www.google.com/maps?q=Big%20Square%20Moi%20Avenue%20Nairobi&output=embed"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>Hungry? Let's Make It Big.</h2>
+
+    <p>
+        Great food, great vibes and a great place
+        to enjoy your next meal.
+    </p>
+
+    <div class="buttons"
+         style="justify-content:center;">
+
+        <a class="btn primary"
+           href="tel:+254707970968">
+            📞 Call Big Square
+        </a>
+
+        <a class="btn secondary"
+           href="https://bigsquare.co.ke/"
+           target="_blank">
+            🛒 Order Online
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div class="contact-info">
+
+            <small style="color:#f5b400;font-weight:bold;">
+                CONTACT US
+            </small>
+
+            <h2>Let's Talk</h2>
+
+            <p>
+                Have a question or want to make an enquiry?
+                Get in touch with Big Square.
+            </p>
+
+            <p>
+                📍 Moi Avenue, Nairobi CBD
+            </p>
+
+            <p>
+                📞 +254 707 970 968
+            </p>
+
+            <p>
+                🌐 bigsquare.co.ke
+            </p>
+
+        </div>
+
+
+        <form class="form"
+              onsubmit="sendMessage(event)">
+
+            <input
+                type="text"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                placeholder="Your Email"
+                required>
+
+            <input
+                type="tel"
+                placeholder="Phone Number">
+
+            <textarea
+                placeholder="Your Message"
+                required></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>Big Square Moi Avenue</strong>.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("active");
+
+}
+
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert(
+        "Thank you! Your message has been received."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
